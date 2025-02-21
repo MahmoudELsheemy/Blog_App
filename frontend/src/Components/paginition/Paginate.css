@@ -1,0 +1,73 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+  gap: 10px;
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.page-pervios {
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+  width: fit-content;
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: 1px solid var(--gray-color);
+}
+
+.page-pervios:hover {
+  background-color: var(--red-color);
+}
+
+.page-next:hover {
+  background-color: var(--green-color);
+}
+
+.page-next {
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+  border: 1px solid var(--gray-color);
+  width: fit-content;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.page-number {
+  border: 1px solid var(--gray-color);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--dark-color);
+}
+
+.page-number:hover {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+}
+
+.active {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  padding: 8px;
+  border-radius: 10px;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

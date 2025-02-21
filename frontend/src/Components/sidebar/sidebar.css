@@ -1,0 +1,73 @@
+.sidebar {
+  flex: 3;
+  margin-left: 20px;
+}
+
+.sidebar h4 {
+  margin-bottom: 20px;
+  color: var(--primary-color);
+  padding: 5px;
+  border-radius: 10px;
+  border-top: 1px solid var(--primary-color);
+  border-bottom: 1px solid var(--primary-color);
+  font-size: 50px;
+  text-align: center;
+}
+.sidebar .sidebar-list {
+  padding: 15px;
+}
+
+.sidebar .sidebar-link {
+  margin: 15px 0;
+  padding: 5px;
+  color: var(--primary-color);
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+  background-color: rgb(170, 168, 168);
+  padding: 10px 0;
+  position: relative;
+  display: block;
+  text-transform: capitalize;
+  clip-path: polygon(
+    100% 0,
+    100% 15%,
+    100% 60%,
+    100% 100%,
+    0 99%,
+    15% 51%,
+    0 1%
+  );
+}
+
+.sidebar .sidebar-link:hover {
+  color: var(--white-color);
+  background-color: var(--pumpkin-color);
+  transition: all 0.3s ease-in-out;
+}
+
+.sidebar .sidebar-link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--pumpkin-color);
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+  z-index: -1;
+}
+
+.sidebar .sidebar-link:hover::before {
+  transform: scaleX(1);
+}
+
+@media (max-width: 960px) {
+  .sidebar {
+    margin-left: 0;
+    width: 100%;
+  }
+}

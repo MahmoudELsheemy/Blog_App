@@ -1,0 +1,125 @@
+.createPost {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 35px auto;
+  padding: 0px 15;
+  border-radius: 10px;
+  background-color: var(--white-color);
+  width: 100%;
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  height: calc(100vh - 100px);
+}
+
+.createPost-title {
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease-in-out;
+  margin-bottom: 15px;
+}
+
+.createPost-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  gap: 20px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.createPost-input,
+.createPost-textarea,
+.createPost-upload,
+.createPost-select {
+  width: 80%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid var(--primary-color);
+  font-size: 20px;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  margin-bottom: 15px;
+  color: var(--primary-color);
+  background-color: var(--white-color);
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+}
+.createPost-textarea {
+  height: 200px;
+  resize: none;
+}
+
+.createPost-upload {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  cursor: pointer;
+  background-color: var(--gray-color);
+}
+
+.createPost-upload input {
+  display: none;
+}
+
+.createPost-button {
+  padding: 20px 20px;
+  border-radius: 10px;
+  border: none;
+  width: 50%;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 25px;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+}
+
+.createPost-button:hover {
+  background-color: var(--green-color);
+  transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .createPost-title {
+    font-size: 30px;
+  }
+  .createPost {
+    height: auto;
+  }
+}
+
+@media (max-width: 520px) {
+  .createPost-form {
+    width: 100%;
+    padding: 10px;
+    gap: 10px;
+    margin: 0;
+  }
+  .createPost {
+    height: auto;
+  }
+
+  .createPost-input,
+  .createPost-textarea,
+  .createPost-upload,
+  .createPost-select {
+    width: 100%;
+  }
+
+  .createPost-button {
+    width: 100%;
+  }
+}

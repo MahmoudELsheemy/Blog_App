@@ -1,0 +1,21 @@
+.postPage {
+  display: flex;
+  gap: 20px;
+  margin: 25px 20px;
+  padding: 20px;
+}
+
+@media (max-width: 870px) {
+  .postPage {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 520px) {
+  .postPage {
+    flex-direction: column;
+    margin: 0;
+    padding: 10px;
+    align-items: center;
+  }
+}

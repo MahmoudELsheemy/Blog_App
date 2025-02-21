@@ -1,0 +1,72 @@
+.addCategory {
+  margin: 12px auto;
+  margin-top: 25px;
+  border: 2px solid var(--gray-color);
+  border-radius: 10px;
+  padding: 10px;
+  width: 80%;
+}
+
+.add-category-title {
+  font-size: 30px;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+.add-category {
+  padding: 12px 15px;
+}
+
+.add-category-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.add-category-label {
+  margin: 5px;
+  font-size: 15px;
+  font-weight: bold;
+  color: var(--gray-color);
+}
+
+.add-category-input {
+  padding: 10px;
+  border: 1px solid var(--gray-color);
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+.add-category-btn {
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: none;
+  width: fit-content;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: -5px;
+  margin-left: 15px;
+  width: fit-content;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.add-category-btn:hover {
+  background-color: var(--green-color);
+  transition: all 0.3s ease-in-out;
+}
+
+@media screen and (max-width: 780px) {
+  .addCategory {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .addCategory {
+    width: 100%;
+  }
+}

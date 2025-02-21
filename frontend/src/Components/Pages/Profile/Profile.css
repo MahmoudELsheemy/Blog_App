@@ -1,0 +1,198 @@
+.prfile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 50px auto;
+  padding: 30px 0;
+  border-radius: 10px;
+  width: 100%;
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+}
+
+.header-profile {
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  padding: 30px 20px;
+  width: 80%;
+  border-radius: 10px;
+  background-color: var(--primary-color);
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+}
+.image-wrapper {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+  margin: 20px auto;
+  padding: 30px 20px;
+  border-radius: 10px;
+}
+
+.profile-image {
+  margin: 0 0 20px 0;
+  padding: 10px;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 50%;
+  box-shadow: 0px 0px 15px -10px rgba(222, 207, 207, 0.75);
+  -webkit-box-shadow: 0px 0px 15px -10px rgba(224, 233, 224, 0.75);
+  -moz-box-shadow: 0px 0px 15px -10px rgba(226, 212, 212, 0.75);
+}
+
+.form {
+  display: flex;
+  padding: 10px;
+  justify-content: flex-start;
+}
+
+.form input {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  width: 100%;
+  background-color: #fbf3f33d;
+  margin: -9px 12px 12px 12px;
+  cursor: pointer;
+}
+
+.form button {
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: none;
+  width: fit-content;
+  background-color: var(--white-color);
+  color: var(--primary-color);
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: -5px;
+  margin-left: 15px;
+  width: fit-content;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.form .camera {
+  padding: 7px 15px;
+  border-radius: 10px;
+  border: none;
+  width: fit-content;
+  background-color: var(--white-color);
+  color: var(--primary-color);
+  font-size: 25px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.form button:hover {
+  background-color: var(--green-color);
+  transition: all 0.3s ease-in-out;
+}
+.profile-username {
+  margin: 0 0 10px 0;
+  padding: 10px;
+  border-radius: 10px;
+  width: 40%;
+  background-color: var(--green-color);
+  text-align: center;
+  color: var(--white-color);
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.profile-description {
+  margin: 0 0 10px 0;
+  text-align: center;
+  font-size: 18px;
+  color: var(--white-color);
+  padding: 10px;
+}
+.use-data-join {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  color: var(--white-color);
+  padding: 10px;
+}
+.use-data-join strong {
+  color: var(--green-color);
+  font-weight: bold;
+  font-size: 17px;
+  padding: 5px;
+  margin-bottom: 12px;
+}
+.update {
+  margin: 0 0 10px 0;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  color: var(--primary-color);
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: var(--pumpkin-color);
+}
+.update-icon {
+  color: var(--primary-color);
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.profile-posts {
+  margin: 20px auto;
+  padding: 30px 0;
+  border-radius: 10px;
+  width: 80%;
+}
+
+.profile-posts-title {
+  text-align: left;
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease-in-out;
+  margin-bottom: 30px;
+  padding: 15px;
+}
+
+.logout {
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: none;
+  width: fit-content;
+  background-color: var(--red-color);
+  color: var(--white-color);
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 10px;
+  cursor: pointer;
+  margin: 20px 0;
+}
+
+@media screen and (max-width: 520px) {
+  .profile-posts-title {
+    font-size: 30px;
+    padding: 10px;
+  }
+  .profile-username {
+    width: 100%;
+    padding: 10px;
+  }
+}
+
+.loader {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+  min-height: calc(80vh - 100px);
+}

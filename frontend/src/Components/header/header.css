@@ -1,0 +1,231 @@
+.header {
+  width: 100%;
+  height: 80px;
+  padding: 0 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  border-bottom: 2px solid var(--white-color);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  font-size: 35px;
+  gap: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  color: var(--white-color);
+  text-decoration: underline;
+  text-underline-offset: 8px;
+}
+.header-logo span:hover {
+  color: var(--green-color);
+  transition: all 0.3s ease-in-out;
+  text-decoration: underline;
+}
+
+.header-menu {
+  display: none;
+}
+.header-menu i {
+  cursor: pointer;
+  font-size: 45px;
+  color: var(--white-color);
+}
+
+.navbar {
+  display: flex;
+  gap: 20px;
+  font-weight: 500;
+  font-size: 18px;
+  cursor: pointer;
+  color: var(--white-color);
+}
+.navbar ul {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: var(--white-color);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 20px;
+  color: var(--white-color);
+}
+.nav-links i {
+  cursor: pointer;
+  font-size: 25px;
+}
+
+.nav-links:hover {
+  color: var(--main-color);
+  transition: all 0.3s ease-in-out;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-weight: 500;
+  font-size: 18px;
+  cursor: pointer;
+  color: var(--white-color);
+}
+
+.header-right-link {
+  margin-left: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 20px;
+  color: var(--primary-color);
+  background-color: var(--white-color);
+  padding: 5px 10px;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.header-right-link:hover {
+  color: var(--white-color);
+  background-color: var(--primary-color);
+  transition: all 0.3s ease-in-out;
+}
+
+.header-right i {
+  cursor: pointer;
+  margin: 5px;
+  font-size: 20px;
+}
+
+.header-right-user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  position: relative;
+  justify-content: space-between;
+}
+
+.user-name {
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 20px;
+  color: var(--main-color);
+  text-transform: capitalize;
+  margin-right: 8px;
+}
+.user-image {
+  cursor: pointer;
+  margin-right: 10px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border: 2px solid var(--main-color);
+}
+
+.header-right-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 25%;
+  background-color: #3a536d;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 15p;
+  margin-top: 15px;
+}
+.header-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 20px;
+  color: var(--white-color);
+  text-decoration: none;
+  margin: 0px 12px;
+}
+
+.header-dropdown-item:hover {
+  color: var(--main-color);
+  transition: all 0.3s ease-in-out;
+}
+
+.header-right-dropdown i {
+  cursor: pointer;
+  font-size: 20px;
+  color: var(--white-color);
+}
+
+.header-right-dropdown i:hover {
+  color: var(--main-color);
+  transition: all 0.3s ease-in-out;
+}
+
+@media screen and (max-width: 990px) {
+  .header {
+    padding: 0 20px;
+  }
+  .header-logo {
+    font-size: 30px;
+  }
+  .header-menu {
+    display: block;
+    margin-right: 20px;
+  }
+  .navbar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--primary-color);
+    transition: all 0.5s ease-in-out;
+    clip-path: polygon(50% 0%, 0 0, 98% 0);
+  }
+  .navbar ul {
+    flex-direction: column;
+    padding: 20px;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .header-left {
+    flex-direction: row-reverse;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .header {
+    padding: 0 10px;
+  }
+  .header-logo {
+    font-size: 25px;
+  }
+  .header-menu {
+    margin-right: 10px;
+  }
+  .header-right-link {
+    font-size: 15px;
+    padding: 3px 5px;
+  }
+}

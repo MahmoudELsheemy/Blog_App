@@ -1,0 +1,191 @@
+.postList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  flex: 9;
+}
+.postItem {
+  display: flex;
+  cursor: pointer;
+  width: 100%;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-bottom: 40px;
+  justify-content: space-between;
+  padding: 10px;
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+}
+.postItem:hover {
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+}
+
+.postItem-image-container {
+  width: 80%;
+  border-radius: 10px;
+  padding: 30px;
+  margin: auto;
+}
+
+.postItem-image {
+  width: 100%;
+  height: 350px;
+  object-fit: contain;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+}
+/* ease transition  of 
+image*/
+
+.post-item-info-weapper {
+  width: 100%;
+}
+
+.post-item-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  border-bottom: 1px solid #ccc;
+}
+.post-item-author strong {
+  font-weight: bold;
+  font-size: 20px;
+  color: var(--green-sea-color);
+}
+
+.post-item-author .post-item-link {
+  text-transform: capitalize;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  font-weight: bold;
+}
+.post-item-author .post-item-link:hover {
+  color: var(--white-color);
+  transition: all 0.3s ease-in-out;
+  background-color: var(--primary-color);
+  border-radius: 50px;
+  padding: 5px 10px;
+  margin: 0 5px;
+}
+
+.post-item-date {
+  font-weight: bold;
+  font-size: 18px;
+  color: var(--green-sea-color);
+}
+.post-item-Details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.post-item-title {
+  font-weight: bold;
+  font-size: 25px;
+  color: var(--primary-color);
+  text-transform: capitalize;
+  text-align: center;
+}
+.post-item-category {
+  text-transform: capitalize;
+  color: var(--white-color);
+  background-color: var(--pumpkin-color);
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 18px;
+  padding: 10px 20px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.post-item-description {
+  font-size: 18px;
+  color: var(--secondary-color);
+  text-align: justify;
+  padding: 10px;
+  margin: 10px 0;
+  overflow: hidden;
+  line-height: 1.9;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+.post-item-more {
+  text-transform: capitalize;
+  color: var(--white-color);
+  padding: 7px 10px;
+  border-radius: 10px;
+  font-size: 18px;
+  padding: 10px 20px;
+  border-radius: 15px;
+  cursor: pointer;
+  display: block;
+  width: fit-content;
+  background-color: var(--green-sea-color);
+}
+.post-item-more:hover {
+  color: var(--red-color);
+  background-color: var(--primary-color);
+}
+
+@media (max-width: 960px) {
+  .postList {
+    justify-content: center;
+  }
+  .postItem {
+    width: 100%;
+  }
+  .postItem-image-container {
+    padding: 0;
+    margin: 0;
+  }
+  .postItem-image {
+    height: 400px;
+    margin: 0 auto;
+  }
+  .post-item-title {
+    font-size: 20px;
+    text-align: center;
+  }
+  .post-item-description {
+    font-size: 15px;
+  }
+  .post-item-more {
+    font-size: 15px;
+  }
+}

@@ -1,0 +1,43 @@
+.Category {
+  margin: 50px auto;
+  border-radius: 10px;
+  width: 85%;
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  background-color: var(--white-color);
+}
+.Category h1 {
+  color: var(--primary-color);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease-in-out;
+  border-radius: 10px;
+  padding: 5px 10px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 40px;
+}
+.Category .title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  text-transform: capitalize;
+  padding: 15px;
+}
+
+.Category h1:hover {
+  color: var(--white-color);
+  background-color: var(--primary-color);
+  transition: all 0.3s ease-in-out;
+}
+
+.notfound-category {
+  display: flex;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  font-size: 20px;
+  border-radius: 15px;
+  color: var(--red-color);
+  text-decoration: underline;
+}
