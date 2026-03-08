@@ -15,11 +15,9 @@ const ResetPassword = () => {
 
   const [password, setPassword] = useState("");
 
-  useEffect(() => {
-    if (isErorr) {
-      dispatch(resetPassword(id, token));
-    }
-  }, [id, isErorr, token, dispatch]);
+useEffect(() => {
+  dispatch(resetPassword(id, token));
+}, [id, token, dispatch]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

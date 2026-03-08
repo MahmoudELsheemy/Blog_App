@@ -33,7 +33,7 @@ module.exports.registerUser = asyncHandler(async (req, res) => {
 
   //creating new verication code && save it in the database
   const verificationCode = new VertificationEmail({
-    id: user._id,
+    id:user._id,
     token: crypto.randomBytes(32).toString("hex"),
   });
   await verificationCode.save();
@@ -83,7 +83,7 @@ module.exports.loginUser = asyncHandler(async (req, res) => {
     });
     if (!verificationCode) {
       verificationCode = new VertificationEmail({
-        userId: user._id,
+        id: user._id,
         token: crypto.randomBytes(32).toString("hex"),
       });
       await verificationCode.save();
@@ -96,7 +96,7 @@ module.exports.loginUser = asyncHandler(async (req, res) => {
     <a href="${link}">Verify your email</a>
   </div>
 `;
-    sendEmail(user.email, "Verify your email", html);
+    await sendEmail(user.email, "Verify your email", html);
 
     return res
       .status(404)

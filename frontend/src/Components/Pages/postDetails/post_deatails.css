@@ -18,11 +18,11 @@
   margin-bottom: 15px;
 }
 .post-details-image {
-  width: 65%;
+  width: 40%;
   object-fit: contain;
   border-radius: 20px;
   padding: 12px;
-  margin: 10px 60px 0px 25px
+  margin: 10px 60px 0px 25px;
 }
 .post-details-user {
   border-radius: 10px;
@@ -246,7 +246,7 @@
     font-size: 7px;
   }
   .post-details-image {
-    width: 70%;
+    width: 40%;
     object-fit: contain;
     padding: 0px;
     margin: 0px 15px 0 0px;
@@ -255,7 +255,7 @@
     width: 30%;
     margin: 0px 10px 0;
   }
-   .post-details-user-image {
+  .post-details-user-image {
     width: 80px;
     height: 80px;
     margin: 0 15px;
@@ -271,7 +271,7 @@
   }
 }
 
-.post-deatails-comment-error{
+.post-deatails-comment-error {
   font-size: 20px;
   color: var(--secondary-color);
   text-align: justify;

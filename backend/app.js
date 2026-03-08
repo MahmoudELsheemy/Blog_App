@@ -4,15 +4,31 @@ const morgan = require("morgan");
 const globalEroor = require("./MiddleWare_Erorr/Erorr_express");
 const cors = require("cors");
 const xss = require("xss-clean");
-const  rateLimit = require("express-rate-limit");
+const rateLimit = require("express-rate-limit");
 const helmet = require("helmet");
 const hpp = require("hpp");
 // const ApiError = require("./utiles/apiErorr");
 dotenv.config();
 const connection_db = require("./config/Connect_db");
+const path = require("path");
 
 // app express
 const app = express();
+
+app.use(express.static(path.join(__dirname, "../front/build"))); // عدّل المسار لو فولدر build مختلف
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../front/build", "index.html"));
+});
+
+app.use(
+  cors({
+    origin: ["http://localhost:3000", "http://localhost:3001"],
+    credentials: true,
+  }),
+);
+
+require("dotenv").config();
 
 //security (prevent parameter pollution)
 app.use(hpp());
@@ -26,7 +42,7 @@ if (process.env.NODE_ENV === "development") {
 //security
 app.use(helmet());
 
-//security 
+//security
 app.use(xss());
 
 //rate limit
@@ -38,14 +54,6 @@ app.use(limiter);
 
 //connect db
 connection_db();
-
-//cors
-app.use(
-  cors({
-    origin: "http://localhost:3000",
-    credentials: true,
-  })
-);
 
 //routes
 app.use("/api/auth", require("./routes/authRoute"));
@@ -75,8 +83,6 @@ process.on("unhandledRejection", (err) => {
   });
 });
 
-
-
 //server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
@@ -84,9 +90,8 @@ app.listen(PORT, () => {
 });
 
 //Resource usage for postman test
-//npm i cors 
+//npm i cors
 
-
-//securtiy 
+//securtiy
 //xss Atack
 //npm i xss-clean
