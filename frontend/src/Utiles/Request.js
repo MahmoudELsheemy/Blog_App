@@ -2,7 +2,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 const request = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: "https://blog-app-vpcw.onrender.com",
 });
 
 request.interceptors.response.use(
