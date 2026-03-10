@@ -17,11 +17,13 @@ const app = express();
 
 // CORS
 const corsOptions = {
-  origin: "https://blog-app-front-dq1f.onrender.com",
+  origin: [
+    "https://blog-app-front-dq1f.onrender.com",
+    "http://localhost:3000" // للتطوير المحلي
+  ],
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
 };
-app.use(cors(corsOptions));
 app.options("*", cors(corsOptions));
 
 
