@@ -12,6 +12,7 @@ dotenv.config();
 const connection_db = require("./config/Connect_db");
 const path = require("path");
 
+const app = express();
 // أول حاجة: middleware عامة
 app.use(express.json());
 app.use(hpp());
