@@ -16,18 +16,32 @@ const connection_db = require("./config/Connect_db");
 const app = express();
 
 // CORS
-const corsOptions = {
-  origin: [
-    'https://blog-app-front-dq1f.onrender.com',
-    'http://localhost:3000'
-  ],
-  credentials: true,
-  optionsSuccessStatus: 200,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
-};
+// استبدل كل إعدادات CORS الحالية بهذا الكود في بداية الملف بعد app.use(express.json())
 
-app.use(cors(corsOptions));
+// السماح مؤقتاً بكل الأصول (للتجربة)
+app.use(cors({
+  origin: true, // يسمح بأي origin مع credentials
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept'],
+  exposedHeaders: ['Content-Length', 'X-Requested-With'],
+}));
+
+// معالجة طلبات OPTIONS يدوياً
+app.options('*', cors());
+
+// middleware إضافي للتأكد من الـ headers
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', req.headers.origin || 'https://blog-app-front-dq1f.onrender.com');
+  res.header('Access-Control-Allow-Credentials', 'true');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(200);
+  }
+  next();
+});
 
 
 require("dotenv").config();
