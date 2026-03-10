@@ -58,6 +58,19 @@ app.use(limiter);
 connection_db();
 
 //routes
+// أضف هذا قبل routes
+app.get('/', (req, res) => {
+  res.json({ 
+    status: 'success',
+    message: 'Blog API is working!',
+    endpoints: {
+      auth: '/api/auth',
+      posts: '/api/posts',
+      categories: '/api/categories',
+      comments: '/api/comments'
+    }
+  });
+});
 app.use("/api/auth", require("./routes/authRoute"));
 app.use("/api/users", require("./routes/userRoute"));
 app.use("/api/posts", require("./routes/postRoute"));
