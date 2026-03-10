@@ -18,13 +18,16 @@ const app = express();
 // CORS
 const corsOptions = {
   origin: [
-    "https://blog-app-front-dq1f.onrender.com",
-    "http://localhost:3000" // للتطوير المحلي
+    'https://blog-app-front-dq1f.onrender.com',
+    'http://localhost:3000'
   ],
   credentials: true,
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  optionsSuccessStatus: 200,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
 };
-app.options("*", cors(corsOptions));
+
+app.use(cors(corsOptions));
 
 
 require("dotenv").config();
