@@ -11,24 +11,21 @@ const hpp = require("hpp");
 dotenv.config();
 const connection_db = require("./config/Connect_db"); 
 
-const cors = require("cors");
-
-const corsOptions = {
-  origin: "https://blog-app-front-dq1f.onrender.com", // رابط الفرونت
-  credentials: true, // لو هتبعت كوكيز
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-};
-
-app.use(cors(corsOptions));
-app.options("*", cors(corsOptions));
 
 // app express
 const app = express();
 
+// CORS
+const corsOptions = {
+  origin: "https://blog-app-front-dq1f.onrender.com",
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+};
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
 
 
 require("dotenv").config();
-
 
 //security (prevent parameter pollution)
 app.use(hpp());
