@@ -48,7 +48,10 @@ if (process.env.NODE_ENV === "development") {
 
 // ✅ الاتصال بقاعدة البيانات
 connection_db();
-
+// قبل routes
+console.log('Current directory:', __dirname);
+console.log('Routes folder exists:', require('fs').existsSync('./routes'));
+console.log('Auth route exists:', require('fs').existsSync('./routes/authRoute.js'));
 // ✅ routes - تأكد من المسارات الصحيحة
 console.log('Loading routes...'); // للتأكد
 
