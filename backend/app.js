@@ -12,57 +12,34 @@ dotenv.config();
 const connection_db = require("./config/Connect_db");
 const path = require("path");
 
-// app express
-const app = express();
-
-app.use(express.static(path.join(__dirname, "../front/build"))); // عدّل المسار لو فولدر build مختلف
-
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../front/build", "index.html"));
-});
-
-app.use(
-  cors({
-     origin: 'https://blog-app-front-dq1f.onrender.com', // اسم الـ frontend
-    credentials: true,
-  }),
-);
-
-require("dotenv").config();
-
-//security (prevent parameter pollution)
-app.use(hpp());
-
-//middleware
+// أول حاجة: middleware عامة
 app.use(express.json());
-if (process.env.NODE_ENV === "development") {
-  app.use(morgan("dev"));
-  console.log(`mode ${process.env.NODE_ENV}`);
-}
-//security
+app.use(hpp());
 app.use(helmet());
-
-//security
 app.use(xss());
+app.use(cors({
+    origin: 'https://blog-app-front-dq1f.onrender.com',
+    credentials: true
+}));
 
-//rate limit
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // limit each IP to 100 requests per windowMs
-});
+const limiter = rateLimit({ windowMs: 15*60*1000, max:100 });
 app.use(limiter);
 
-//connect db
-connection_db();
-
-//routes
+// بعدين routes الـ API
 app.use("/api/auth", require("./routes/authRoute"));
 app.use("/api/users", require("./routes/userRoute"));
 app.use("/api/posts", require("./routes/postRoute"));
 app.use("/api/comments", require("./routes/commentRoute"));
 app.use("/api/categories", require("./routes/categoryRoute"));
 app.use("/api/password", require("./routes/passwordRoute"));
-//not found
+
+// بعد كل الـ API، نخلي build للـ frontend
+app.use(express.static(path.join(__dirname, "../front/build")));
+
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../front/build/index.html"));
+});
+
 app.all("*", (req, res, next) => {
   res.status(404).json({
     status: "fail",
@@ -70,6 +47,7 @@ app.all("*", (req, res, next) => {
   });
   next();
 });
+
 
 //error middleware(internal exceptions)
 app.use(globalEroor);
