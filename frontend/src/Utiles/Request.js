@@ -2,7 +2,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 const request = axios.create({
-  baseURL: "https://blog-app-vpcw.onrender.com",
+  baseURL: "https://blog-app-vpcw.onrender.com/api", // أضف /api في النهاية
   withCredentials: true, // مهم لو هتبعت cookies
 });
 
