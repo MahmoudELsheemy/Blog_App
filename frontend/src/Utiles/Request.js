@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 
 const request = axios.create({
   baseURL: "https://blog-app-vpcw.onrender.com",
+  withCredentials: true, // مهم لو هتبعت cookies
 });
 
 request.interceptors.response.use(
