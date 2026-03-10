@@ -13,12 +13,14 @@ const connection_db = require("./config/Connect_db");
 
 // app express
 const app = express();
+
 app.use(cors({
-  origin: "https://blog-app-front-dq1f.onrender.com", // رابط الفرونت
+  origin: "https://blog-app-front-dq1f.onrender.com",
   credentials: true,
   methods: ["GET","POST","PUT","DELETE","OPTIONS"]
 }));
 app.options("*", cors());
+
 require("dotenv").config();
 
 
