@@ -16,8 +16,7 @@
     "react-scripts": "5.0.1",
     "react-toastify": "^11.0.3",
     "serve": "^14.2.4",
-    "sweetalert2": "^11.16.0",
-    "proxy": "http://localhost:5000"
+    "sweetalert2": "^11.16.0"
   },
   "scripts": {
     "start": "react-scripts start",
