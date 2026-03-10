@@ -9,38 +9,47 @@ const helmet = require("helmet");
 const hpp = require("hpp");
 // const ApiError = require("./utiles/apiErorr");
 dotenv.config();
-const connection_db = require("./config/Connect_db");
-const path = require("path");
+const connection_db = require("./config/Connect_db"); 
 
+// app express
 const app = express();
-// أول حاجة: middleware عامة
-app.use(express.json());
-app.use(hpp());
-app.use(helmet());
-app.use(xss());
-app.use(cors({
-    origin: 'https://blog-app-front-dq1f.onrender.com',
-    credentials: true
-}));
 
-const limiter = rateLimit({ windowMs: 15*60*1000, max:100 });
+
+require("dotenv").config();
+
+//security (prevent parameter pollution)
+app.use(hpp());
+
+//middleware
+app.use(express.json());
+if (process.env.NODE_ENV === "development") {
+  app.use(morgan("dev"));
+  console.log(`mode ${process.env.NODE_ENV}`);
+}
+//security
+app.use(helmet());
+
+//security
+app.use(xss());
+
+//rate limit
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // limit each IP to 100 requests per windowMs
+});
 app.use(limiter);
 
-// بعدين routes الـ API
+//connect db
+connection_db();
+
+//routes
 app.use("/api/auth", require("./routes/authRoute"));
 app.use("/api/users", require("./routes/userRoute"));
 app.use("/api/posts", require("./routes/postRoute"));
 app.use("/api/comments", require("./routes/commentRoute"));
 app.use("/api/categories", require("./routes/categoryRoute"));
 app.use("/api/password", require("./routes/passwordRoute"));
-
-// بعد كل الـ API، نخلي build للـ frontend
-app.use(express.static(path.join(__dirname, "../front/build")));
-
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../front/build/index.html"));
-});
-
+//not found
 app.all("*", (req, res, next) => {
   res.status(404).json({
     status: "fail",
@@ -48,7 +57,6 @@ app.all("*", (req, res, next) => {
   });
   next();
 });
-
 
 //error middleware(internal exceptions)
 app.use(globalEroor);
