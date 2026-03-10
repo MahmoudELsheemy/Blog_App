@@ -23,7 +23,7 @@ app.get("*", (req, res) => {
 
 app.use(
   cors({
-    origin: ["http://localhost:3000", "http://localhost:3001"],
+     origin: 'https://blog-app-front-dq1f.onrender.com', // اسم الـ frontend
     credentials: true,
   }),
 );
