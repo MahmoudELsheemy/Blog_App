@@ -13,12 +13,12 @@ const connection_db = require("./config/Connect_db");
 // app express
 const app = express();
 
-app.use(
-  cors({
-    origin: ["http://localhost:3000", "http://localhost:3001"],
-    credentials: true,
-  }),
-);
+//app.use(
+ // cors({
+ //   origin: ["http://localhost:3000", "http://localhost:3001"],
+ ///   credentials: true,
+ // }),
+//);
 
 require("dotenv").config();
 
