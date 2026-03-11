@@ -7,25 +7,34 @@ const xss = require("xss-clean");
 const rateLimit = require("express-rate-limit");
 const helmet = require("helmet");
 const hpp = require("hpp");
+const path = require("path"); // ✅ أضف هذا للسطر
 dotenv.config();
 const connection_db = require("./config/Connect_db");
 
 // app express
 const app = express();
 
-//app.use(
- // cors({
- //   origin: ["http://localhost:3000", "http://localhost:3001"],
- ///   credentials: true,
- // }),
-//);
+// ✅ تعديل CORS للنشر - أضف رابط الفرونت إند على Render
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000", 
+      "http://localhost:3001",
+      "https://blog-app-front-dq1f.onrender.com" // ✅ أضف رابط الفرونت إند
+    ],
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
+
+// ✅ معالجة طلبات OPTIONS
+app.options("*", cors());
 
 require("dotenv").config();
 
-//security (prevent parameter pollution)
+//security
 app.use(hpp());
-
-//middleware
 app.use(express.json());
 
 if (process.env.NODE_ENV === "development") {
@@ -54,6 +63,20 @@ app.use("/api/posts", require("./routes/postRoute"));
 app.use("/api/comments", require("./routes/commentRoute"));
 app.use("/api/categories", require("./routes/categoryRoute"));
 app.use("/api/password", require("./routes/passwordRoute"));
+
+// ✅ route للاختبار (مهم جداً)
+app.get("/", (req, res) => {
+  res.json({
+    status: "success",
+    message: "Blog API is working!",
+    endpoints: {
+      auth: "/api/auth",
+      posts: "/api/posts",
+      categories: "/api/categories",
+      comments: "/api/comments"
+    }
+  });
+});
 
 //not found
 app.all("*", (req, res, next) => {
