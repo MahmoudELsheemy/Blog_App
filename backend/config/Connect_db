@@ -1,15 +1,14 @@
-// تأكد من أن الملف يبدو هكذا
 const mongoose = require('mongoose');
 
 const connection_db = async () => {
   try {
+    // التأكد من استخدام رابط MongoDB Atlas من env
     const conn = await mongoose.connect(process.env.DB_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
+      // إزالة الخيارات القديمة
     });
-    console.log(`MongoDB Connected: ${conn.connection.host}`);
+    console.log(`Database connected successfully: ${conn.connection.host}`);
   } catch (error) {
-    console.error(`Error: ${error.message}`);
+    console.error('Database connection error:', error.message);
     process.exit(1);
   }
 };
